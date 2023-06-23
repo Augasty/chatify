@@ -1,13 +1,13 @@
-import { useState } from 'react'
 import './App.css'
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/auth'
-
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
-import {SignIn} from './components/SignIn/SignIn'
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/firestore'
+import 'firebase/compat/auth'
 import ChatRoom from './components/ChatRoom/ChatRoom'
+import 'firebase/compat/analytics'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { SignIn,SignOut } from './components/SignIn/SignIn'
+
+
 
 firebase.initializeApp({
   // your configs
@@ -21,22 +21,31 @@ firebase.initializeApp({
 
 })
 
-const auth = firebase.auth()
-const firestore = firebase.firestore()
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+const analytics = firebase.analytics();
+
 
 function App() {
-  const [user] = useAuthState(auth)
+
+  const [user] = useAuthState(auth);
 
   return (
-
-    <div className='App'>
+    <div className="App">
       <header>
-        <section>
-          {user ? <ChatRoom/>:<SignIn/>}
-        </section>
+        <h1>Chatify💬</h1>
+        <SignOut />
       </header>
+
+      <section>
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
+
     </div>
-  )
+  );
 }
 
-export default App
+
+
+export default App;

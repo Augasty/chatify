@@ -1,20 +1,28 @@
-import React from 'react'
-import firebase from 'firebase/app'
-import { signOut } from 'firebase/auth'
-const auth = firebase.auth()
-export const SignIn = () => {
+import firebase from 'firebase/compat/app'
+import { auth } from '../../App'
 
-    function signInWithGoogle(){
-        const provider = new firebase.auth.GoogleAuthProvider()
-        auth.signInWithPopup(provider)
-    }
+
+
+function SignIn() {
+
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+  }
+
   return (
-    <button onClick={signInWithGoogle}>Sign In with Google to start chatting 💬</button>
+    <>
+      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+    </>
   )
+
 }
-export const SignOut = () => {
+
+function SignOut() {
   return auth.currentUser && (
-    <button onClick={()=> auth.SignOut()}> Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
+
+export {SignIn,SignOut}
 
