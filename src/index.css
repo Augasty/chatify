@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: "typewriter" cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-    monospace;
+  font-family: "courier","typewriter" cursive;
+    monospace
 }
