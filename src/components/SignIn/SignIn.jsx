@@ -1,7 +1,6 @@
 import firebase from 'firebase/compat/app'
 import { auth } from '../../App'
-
-
+import { AiOutlinePoweroff } from "react-icons/ai";
 
 function SignIn() {
 
@@ -12,7 +11,8 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <button className="sign-in" onClick={signInWithGoogle} 
+      style={{fontFamily: 'inherit'}}>Sign in with Google</button>
     </>
   )
 
@@ -20,7 +20,8 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}
+      style={{fontFamily:'inherit'}}><AiOutlinePoweroff/></button>
   )
 }
 

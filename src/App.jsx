@@ -3,10 +3,9 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import 'firebase/compat/auth'
 import ChatRoom from './components/ChatRoom/ChatRoom'
-import 'firebase/compat/analytics'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { SignIn,SignOut } from './components/SignIn/SignIn'
-
+import { SignIn, SignOut } from './components/SignIn/SignIn'
+import { AiOutlineEdit } from "react-icons/ai";
 
 
 firebase.initializeApp({
@@ -24,7 +23,6 @@ firebase.initializeApp({
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
-const analytics = firebase.analytics();
 
 
 function App() {
@@ -34,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Chatify💬</h1>
+        <h1 style={{marginLeft:'5px'}} >Chatify <AiOutlineEdit/></h1>
         <SignOut />
       </header>
 
