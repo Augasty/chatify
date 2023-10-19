@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app'
 import { auth } from '../../App'
 import { AiOutlinePoweroff } from "react-icons/ai";
-
+import './styles.css'
 function SignIn() {
 
   const signInWithGoogle = () => {

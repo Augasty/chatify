@@ -4,7 +4,7 @@ import { useRef, useState } from 'react'
 import ChatMessage from './ChatMessage'
 import firebase from 'firebase/compat/app'
 import { AiOutlineSend } from "react-icons/ai";
-
+import './styles.css'
 
 function ChatRoom() {
   

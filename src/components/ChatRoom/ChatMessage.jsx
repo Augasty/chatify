@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { auth } from "../../App";
 
 function ChatMessage(props) {
