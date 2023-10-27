@@ -14,6 +14,7 @@ function ChatRoom() {
   const messagesRef = firestore.collection('texts');
   
   // now we are ordering the doc by the parameter createdAt, and limit it to 25 results
+  // desc to fetch the latest texts first, we will reverse the resulting array while rendering 
   const query = messagesRef.orderBy('createdAt',"desc").limit(3);
   
   // we can update the data our app in real time whenever there is any update in the firestore database
@@ -49,7 +50,7 @@ function ChatRoom() {
   return (<>
     <main>
 
-      {messages && messages.map(msg => <ChatMessage key={msg.uniqueId} message={msg} />)}
+      {messages && messages.toReversed().map(msg => <ChatMessage key={msg.uniqueId} message={msg}/>)}
 
       {/* this empty span is referenced by the useRef hook, so everytime we send something we call the scrollIntoView function on this dummy ref.*/}
       <span ref={dummy}></span>
