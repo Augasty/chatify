@@ -37,14 +37,14 @@ function ChatRoom() {
 
 
   // refetching the data from firebase when the user has scrolled up to the top
-  const [no_of_texts, set_no_of_texts] = useState(10)
+  const [no_of_texts, set_no_of_texts] = useState(5)
 
   const callAnotherTenTexts = async() => {
 
     const snapshot = await messagesRef.get()
     let cursize = snapshot.size
 
-    if (no_of_texts > cursize){
+    if (no_of_texts - 5 > cursize){
       return
     }
     let newQuery = messagesRef.orderBy('createdAt',"desc").limit(no_of_texts);
