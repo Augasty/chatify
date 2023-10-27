@@ -15,7 +15,7 @@ function ChatRoom() {
   
   // now we are ordering the doc by the parameter createdAt, and limit it to 25 results
   // desc to fetch the latest texts first, we will reverse the resulting array while rendering 
-  const query = messagesRef.orderBy('createdAt',"desc").limit(3);
+  const query = messagesRef.orderBy('createdAt',"desc").limit(10);
   
   // we can update the data our app in real time whenever there is any update in the firestore database
   // with this useCollectionData hook. It returns an array of object, where each object is the chat message in the db.
