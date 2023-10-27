@@ -4,11 +4,19 @@ import { AiOutlinePoweroff } from "react-icons/ai";
 import './styles.css'
 function SignIn() {
 
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  }
-
+  // const signInWithGoogle = () => {
+  //   const provider = new firebase.auth.GoogleAuthProvider();
+  //   auth.signInWithPopup(provider);
+  // }
+  const signInWithGoogle = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider(); // Use 'GoogleAuthProvider' directly
+    provider.setCustomParameters({ prompt: 'consent' });
+    try {
+    await auth.signInWithPopup(provider); // Use 'provider' directly here
+    } catch (error) {
+    alert(error.message);
+    }
+    };
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle} 
