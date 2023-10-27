@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { auth } from "../../App";
+import { auth } from "../../utils/firebase";
 
 function ChatMessage(props) {
     const { text, uid, photoURL } = props.message;

@@ -1,5 +1,5 @@
 import firebase from 'firebase/compat/app'
-import { auth } from '../../App'
+import { auth } from '../../utils/firebase'
 import { AiOutlinePoweroff } from "react-icons/ai";
 import './styles.css'
 function SignIn() {
