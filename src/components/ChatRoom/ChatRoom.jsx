@@ -105,7 +105,7 @@ function ChatRoom() {
     })
     
     setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
+    dummy.current.scrollIntoView({ block: "start", inline: "nearest"});
   }
   
   const dummy = useRef();
